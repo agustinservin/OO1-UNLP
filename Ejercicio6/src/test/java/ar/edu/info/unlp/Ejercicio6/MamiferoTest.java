@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -90,7 +90,7 @@ public class MamiferoTest {
 		assertEquals(mufasa, anonimo.getPadre());
 		assertNull(nala.getPadre());
 	}
-
+	
 	@Test
 	void testTieneComoAncestroA() {
 		assertFalse(nala.tieneComoAncestroA(anonimo));
@@ -112,14 +112,12 @@ public class MamiferoTest {
 		Mamifero aaron = new Mamifero("Aaron");
 		Mamifero anna = new Mamifero("Anna");
 		Mamifero alexander = new Mamifero("Alexander");
-
 		alice.setPadre(aaron);
 		aaron.setMadre(anna);
 		anna.setPadre(alexander);
-
 		assertTrue(alice.tieneComoAncestroA(anna));
 		assertTrue(alice.tieneComoAncestroA(aaron));
-		assertTrue(alice.tieneComoAncestroA(alexander));
+		assertTrue(alice.tieneComoAncestroA(alexander));     
 		assertFalse(alice.tieneComoAncestroA(nala));
 		assertFalse(alice.tieneComoAncestroA(alice));
 	}

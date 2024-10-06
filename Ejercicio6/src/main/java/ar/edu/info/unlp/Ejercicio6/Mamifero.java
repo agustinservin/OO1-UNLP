@@ -6,12 +6,12 @@ public class Mamifero {
 	private String id;
 	private String especie;
 	private Date fechaNac;
-	private Mamifero padre;
-	private Mamifero madre;
-	private Mamifero abueloMaterno;
-	private Mamifero abuelaMaterna;
-	private Mamifero abueloPaterno;
-	private Mamifero abuelaPaterna;
+	private Mamifero padre=null;
+	private Mamifero madre=null;
+	private Mamifero abueloMaterno=null;
+	private Mamifero abuelaMaterna=null;
+	private Mamifero abueloPaterno=null;
+	private Mamifero abuelaPaterna=null;
 	public Mamifero(String id) {
 		this.id = id;
 	}
@@ -46,25 +46,41 @@ public class Mamifero {
 	public void setMadre(Mamifero madre) {
 		this.madre = madre;
 	}
+	//errores notorios, en cada metodo validar que la madre o el padre no sean null.
 	public Mamifero getAbueloMaterno() {
-		abueloMaterno = madre.getPadre();
+		if(madre != null) {
+			abueloMaterno = madre.getPadre();
+		}
 		return abueloMaterno;
 	}
 	public Mamifero getAbuelaMaterna() {
-		this.abuelaMaterna = madre.getMadre();
+		if(madre!=null) {
+			this.abuelaMaterna = madre.getMadre();
+		}
 		return this.abuelaMaterna;
 	}
 	public Mamifero getAbueloPaterno() {
-		abueloPaterno = padre.getPadre();
+		if(padre != null) {
+			abueloPaterno = padre.getPadre();
+		}
 		return abueloPaterno;
 	}
 	public Mamifero getAbuelaPaterna() {
-		abuelaMaterna = padre.getMadre();
-		return abuelaMaterna;
+		if(padre!= null) {
+			abuelaPaterna = padre.getMadre();
+		}
+		return abuelaPaterna;
 	}
-	
+	//demasiados OR, 0 escalable, esteticamente feo. Podria ser una lista de ancestros? donde llenaria esa lista? em que momento?
 	public Boolean tieneComoAncestroA(Mamifero ancestro) {
-		return this.abuelaMaterna == ancestro || this.abueloMaterno == ancestro || this.abueloPaterno == ancestro || this.abuelaPaterna == ancestro;
+		Boolean partePadre = false;
+		Boolean parteMadre = false;
+		if(padre!= null) {
+			partePadre = padre.tieneComoAncestroA(ancestro);
+		}else if(madre != null) {
+			parteMadre = madre.tieneComoAncestroA(ancestro);
+		}
+		return parteMadre || partePadre;
 	}
 	
 }
