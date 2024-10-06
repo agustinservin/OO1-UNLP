@@ -6,12 +6,8 @@ public class Mamifero {
 	private String id;
 	private String especie;
 	private Date fechaNac;
-	private Mamifero padre=null;
-	private Mamifero madre=null;
-	private Mamifero abueloMaterno=null;
-	private Mamifero abuelaMaterna=null;
-	private Mamifero abueloPaterno=null;
-	private Mamifero abuelaPaterna=null;
+	private Mamifero padre;
+	private Mamifero madre;
 	public Mamifero(String id) {
 		this.id = id;
 	}
@@ -49,38 +45,50 @@ public class Mamifero {
 	//errores notorios, en cada metodo validar que la madre o el padre no sean null.
 	public Mamifero getAbueloMaterno() {
 		if(madre != null) {
-			abueloMaterno = madre.getPadre();
+			return madre.getPadre();
 		}
-		return abueloMaterno;
+		return null;
+		
 	}
 	public Mamifero getAbuelaMaterna() {
 		if(madre!=null) {
-			this.abuelaMaterna = madre.getMadre();
+			return madre.getMadre();
 		}
-		return this.abuelaMaterna;
+		return null;
 	}
 	public Mamifero getAbueloPaterno() {
 		if(padre != null) {
-			abueloPaterno = padre.getPadre();
+			return padre.getPadre();
 		}
-		return abueloPaterno;
+		return null;
 	}
 	public Mamifero getAbuelaPaterna() {
 		if(padre!= null) {
-			abuelaPaterna = padre.getMadre();
+			return padre.getMadre();
 		}
-		return abuelaPaterna;
+		return null;
 	}
-	//demasiados OR, 0 escalable, esteticamente feo. Podria ser una lista de ancestros? donde llenaria esa lista? em que momento?
-	public Boolean tieneComoAncestroA(Mamifero ancestro) {
-		Boolean partePadre = false;
-		Boolean parteMadre = false;
-		if(padre!= null) {
-			partePadre = padre.tieneComoAncestroA(ancestro);
-		}else if(madre != null) {
-			parteMadre = madre.tieneComoAncestroA(ancestro);
+	
+	public Boolean tieneComoAncestroA(Mamifero ancestroBuscado) {
+		Boolean encontrado = false;
+		if(padre!= null){
+			
+			if(padre == ancestroBuscado){
+				return true;
+			}
+			else{
+				encontrado = padre.tieneComoAncestroA(ancestroBuscado);
+			}
 		}
-		return parteMadre || partePadre;
+		if(madre != null && encontrado == false) {
+			
+			if(madre == ancestroBuscado) {
+				return true;
+			}else{
+				encontrado = madre.tieneComoAncestroA(ancestroBuscado);
+			}
+		}
+		return encontrado;
 	}
 	
 }
