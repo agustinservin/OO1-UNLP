@@ -13,6 +13,6 @@ public abstract class Pieza {
 	public String getColor() {
 		return this.color;
 	}
-	public abstract Integer getVolumen();
-	public abstract Integer getSuperficie();
+	public abstract Double getVolumen();
+	public abstract Double getSuperficie();
 }

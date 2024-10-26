@@ -1,21 +1,24 @@
 package ar.edu.info.unlp.Ejercicio12;
 
 public class Cilindro extends Pieza {
-	Integer radio;
-	Integer altura;
-	public Cilindro(String material, String color) {
+	private Integer radio;
+	private Integer altura;
+	public Cilindro(String material, String color, Integer radio, Integer altura) {
 		super(material, color);
+		this.radio = radio;
+		this.altura = altura;
 	}
 	@Override
 	public Double getVolumen() {
 		// TODO Auto-generated method stub
-		return Math.PI * radio * radio 	;
+		return Math.PI * Math.pow(radio, 2);
 	}
 
 	@Override
 	public Double getSuperficie() {
 		// TODO Auto-generated method stub
-		return null;
+		// 2 * π * radio  * h + 2 * π * radio 2 
+		return 2 * Math.PI * this.radio * this.altura + 2 * Math.PI * Math.pow(radio, 2);
 	}
 	
 }
