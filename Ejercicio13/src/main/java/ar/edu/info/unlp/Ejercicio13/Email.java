@@ -6,8 +6,11 @@ public class Email {
 	private Integer tamanio;
 	private ArrayList<Archivo> archivos;
 	public Email(String titulo, String cuerpo){
+		this.tamanio = 0;
 		this.titulo = titulo;
 		this.cuerpo = cuerpo;
+		this.tamanio += titulo.length();
+		this.tamanio += cuerpo.length();
 	}
 	public String getTitulo() {
 		return this.titulo;
