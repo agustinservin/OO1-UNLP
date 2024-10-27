@@ -23,6 +23,9 @@ public class Email {
 		this.archivos.add(arch);
 		this.tamanio += arch.tamanio();
 	}
+	public Integer getTamanio() {
+		return this.tamanio;
+	}
 	public ArrayList<Archivo> adjuntos(){
 		return this.archivos;
 	}
