@@ -9,6 +9,7 @@ public class Email {
 		this.tamanio = 0;
 		this.titulo = titulo;
 		this.cuerpo = cuerpo;
+		archivos = new ArrayList<Archivo>();
 		this.tamanio += titulo.length();
 		this.tamanio += cuerpo.length();
 	}
