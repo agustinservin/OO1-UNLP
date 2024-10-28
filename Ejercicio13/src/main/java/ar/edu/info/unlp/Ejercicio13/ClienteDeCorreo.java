@@ -18,6 +18,7 @@ public class ClienteDeCorreo {
 		return espacio;
 	}
 	public Email buscar(String texto){
+		//el filter deberia ser un metodo de Email
 		Email email = inbox.getEmails().stream().filter(e->e.getCuerpo().contains(texto) || e.getTitulo().contains(texto)).findFirst().orElse(null);
 		if(email != null) {
 			return email;
