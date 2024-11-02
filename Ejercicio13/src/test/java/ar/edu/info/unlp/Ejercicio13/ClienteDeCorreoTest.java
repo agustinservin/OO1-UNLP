@@ -1,6 +1,7 @@
 package ar.edu.info.unlp.Ejercicio13;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,7 +28,7 @@ public class ClienteDeCorreoTest {
 	@Test
 	public void buscarTest() {
 		assertEquals(em2, clienteConCorreos.buscar("Cuerpo2"));
-		assertEquals(null, clienteSinCorreos.buscar("Cuerpo1"));
+		assertNull(clienteSinCorreos.buscar("Cuerpo1"));
 	}
 	@Test
 	public void espacioOcupadoTest(){
