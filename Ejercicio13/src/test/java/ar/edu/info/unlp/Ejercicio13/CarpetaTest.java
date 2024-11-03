@@ -1,6 +1,9 @@
 package ar.edu.info.unlp.Ejercicio13;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 public class CarpetaTest {
 	Carpeta spam,inbox;
 	Email email;
@@ -32,6 +35,5 @@ public class CarpetaTest {
 		assertEquals(0, spam.getEmails().size());
 		spam.agregarEmail(email);
 		assertEquals(1, spam.getEmails().size());
->>>>>>> 5d3415518c5d248dbade36d0b186d6309f518065
 	}
 }
