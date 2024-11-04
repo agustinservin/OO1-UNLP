@@ -14,7 +14,7 @@ public class PeliculaTest {
 	void setup() {
 		saw = new Pelicula("saw","saw.com");
 		lala = new Pelicula("lalaland", "aPuroRomance.com/lalaland");
-		sawII = new Pelicula("saw II","saw.com");
+		sawII = new Pelicula("saw II","saw.com/2");
 		saw.setPuntajeHorror(9.0);
 		saw.setPuntajeSuspenso(7.5);
 		saw.setPuntajeAccion(1.5);
@@ -39,5 +39,13 @@ public class PeliculaTest {
 	public void testEsMatch() {
 		assertFalse(saw.esMatch(lala.getPerfilDeGenero()));
 		assertTrue(saw.esMatch(sawII.getPerfilDeGenero()));
+	}
+	@Test
+	public void testGetTitulo() {
+		assertEquals("saw",saw.getTitulo());
+	}
+	@Test
+	public void testGetInfoUrl() {
+		assertEquals("saw.com", saw.getInfoUrl());
 	}
 }

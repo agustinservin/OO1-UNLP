@@ -32,28 +32,21 @@ public class Cinefilo{
 		promediarPerfil();
 	}
 	private void promediarPerfil(){
-		if(peliculasVistas.size() < 2) {
-			for (Pelicula pelicula : peliculasVistas) {
+		Integer size = peliculasVistas.size() < 2 ? 2 : peliculasVistas.size();
+			for (Pelicula pelicula : peliculasVistas)
+			{
 				PerfilDeGenero perfilActual = pelicula.getPerfilDeGenero();
-				this.perfil.setPuntAccion(Math.abs((perfilActual.getPuntAccion() + this.perfil.getPuntAccion()) / 2));
-				this.perfil.setPuntRomance(Math.abs((perfilActual.getPuntRomance() + this.perfil.getPuntRomance()) / 2));
-				this.perfil.setPuntHorror(Math.abs((perfilActual.getPuntHorror() + this.perfil.getPuntHorror()) / 2));
-				this.perfil.setPuntSciFi(Math.abs((perfilActual.getPuntSciFi() + this.perfil.getPuntSciFi()) / 2));
-				this.perfil.setPuntSuspenso(Math.abs((perfilActual.getPuntSuspenso() + this.perfil.getPuntSuspenso()) / 2));
-				this.perfil.setPuntComedy(Math.abs((perfilActual.getPuntComedy() + this.perfil.getPuntComedy()) / 2));
+				actualizarPerfil(perfilActual, size);
 			}
 		}
-		else{
-			int size = peliculasVistas.size();
-			for (Pelicula pelicula : peliculasVistas) {
-				PerfilDeGenero perfilActual = pelicula.getPerfilDeGenero();
-				this.perfil.setPuntAccion(Math.abs((perfilActual.getPuntAccion() + this.perfil.getPuntAccion()) / size));
-				this.perfil.setPuntRomance(Math.abs((perfilActual.getPuntRomance() + this.perfil.getPuntRomance()) / size));
-				this.perfil.setPuntHorror(Math.abs((perfilActual.getPuntHorror() + this.perfil.getPuntHorror()) / size));
-				this.perfil.setPuntSciFi(Math.abs((perfilActual.getPuntSciFi() + this.perfil.getPuntSciFi()) / size));
-				this.perfil.setPuntSuspenso(Math.abs((perfilActual.getPuntSuspenso() + this.perfil.getPuntSuspenso()) / size));
-				this.perfil.setPuntComedy(Math.abs((perfilActual.getPuntComedy() + this.perfil.getPuntComedy()) / size));
-				}
-			}
-		}
+	//a cada pelicula entra, podria hacerse una sola vez juntando todos los puntajes de cada pelicula
+	private void actualizarPerfil(PerfilDeGenero perfil, Integer size) 
+	{
+		this.perfil.setPuntAccion(Math.abs((perfil.getPuntAccion() + this.perfil.getPuntAccion()) / size));
+		this.perfil.setPuntRomance(Math.abs((perfil.getPuntRomance() + this.perfil.getPuntRomance()) / size));
+		this.perfil.setPuntHorror(Math.abs((perfil.getPuntHorror() + this.perfil.getPuntHorror()) / size));
+		this.perfil.setPuntSciFi(Math.abs((perfil.getPuntSciFi() + this.perfil.getPuntSciFi()) / size));
+		this.perfil.setPuntSuspenso(Math.abs((perfil.getPuntSuspenso() + this.perfil.getPuntSuspenso()) / size));
+		this.perfil.setPuntComedy(Math.abs((perfil.getPuntComedy() + this.perfil.getPuntComedy()) / size));
 	}
+}
