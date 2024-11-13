@@ -6,15 +6,6 @@ public class Pelicula{
 	private PerfilDeGenero perfil;
 	public Pelicula() {
 		perfil = new PerfilDeGenero();
-		iniciarGeneros();
-	}
-	private void iniciarGeneros() {
-		perfil.setPuntAccion(0.0);
-		perfil.setPuntHorror(0.0);
-		perfil.setPuntRomance(0.0);
-		perfil.setPuntSciFi(0.0);
-		perfil.setPuntComedy(0.0);
-		perfil.setPuntSuspenso(0.0);
 	}
 	public void setPuntajeHorror(Double punt) {
 		perfil.setPuntHorror(punt);
@@ -39,7 +30,6 @@ public class Pelicula{
 		perfil = new PerfilDeGenero();
 		this.titulo = titulo;
 		this.infoUrl = url;
-		iniciarGeneros();
 	}
 	public String getTitulo() {
 		return this.titulo;

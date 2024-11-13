@@ -1,7 +1,6 @@
 package ar.edu.info.unlp.Cinefiloos;
 
 import java.util.ArrayList;
-//podrian extender de objetoconperfil?
 public class Cinefilo{
 	private String nombre;
 	private String apellido;
@@ -14,6 +13,15 @@ public class Cinefilo{
 		this.email = email;
 		this.perfil = new PerfilDeGenero();
 		this.peliculasVistas = new ArrayList<Pelicula>();
+		iniciarGeneros();
+	}
+	private void iniciarGeneros() {
+		perfil.setPuntAccion(4.5);
+		perfil.setPuntHorror(4.5);
+		perfil.setPuntRomance(4.5);
+		perfil.setPuntSciFi(4.5);
+		perfil.setPuntComedy(4.5);
+		perfil.setPuntSuspenso(4.5);
 	}
 	public String getNombreCompleto() {
 		return nombre + " " + apellido;

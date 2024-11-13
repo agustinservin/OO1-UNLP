@@ -9,12 +9,12 @@ public class PerfilDeGenero {
 	private Double puntSciFi;
 	
 	public PerfilDeGenero() {
-		this.puntAccion = 4.5;
-		this.puntHorror = 4.5;
-		this.puntRomance = 4.5;
-		this.puntSuspenso = 4.5;
-		this.puntComedy = 4.5;
-		this.puntSciFi = 4.5;
+		this.puntAccion = 0.0;
+		this.puntHorror = 0.0;
+		this.puntRomance = 0.0;
+		this.puntSuspenso = 0.0;
+		this.puntComedy = 0.0;
+		this.puntSciFi = 0.0;
 	}
 	
 	public Boolean comparar(PerfilDeGenero perfil) {
